@@ -16,7 +16,9 @@ RUN python -m pip install -e detectron2
 # Development packages
 RUN pip install flask flask-cors requests opencv-python
 
+ADD requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
-COPY server.py server.py
+COPY app/server.py app/server.py
 
 ENTRYPOINT ["python", "/app/server.py"]
